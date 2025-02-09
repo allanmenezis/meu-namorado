@@ -1,0 +1,109 @@
+
+
+# Create folder for the project
+folder_path = '/mnt/data/aniversario_site'
+os.makedirs(folder_path, exist_ok=True)
+
+# HTML content
+html_content = '''<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem de Aniversário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Oi amor, feliz aniversário! Te desejo tudo de bom. Obrigado por todos os nossos momentos juntos 💐💍</h1>
+        
+        <div class="balloon-container">
+            <img id="balloon" src="https://img.icons8.com/ios/452/balloon.png" alt="Balão" onclick="popBalloon()">
+            <span id="balloon-text">Estoure o balão</span>
+        </div>
+
+        <div id="message" class="hidden">
+            <h2>Vamos comemorar seu aniversário?</h2>
+            <button onclick="handleResponse('yes')">Sim</button>
+            <button onclick="handleResponse('no')">Não</button>
+        </div>
+        
+        <div id="response" class="hidden">
+            <p id="response-text"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>'''
+
+# CSS content
+css_content = '''body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.balloon-container {
+    position: relative;
+    display: inline-block;
+}
+
+#balloon {
+    width: 150px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+'''
+
+# JavaScript content
+js_content = '''function popBalloon() {
+    document.getElementById('balloon').src = "https://img.icons8.com/ios/452/balloon.png";
+    document.getElementById('message').classList.remove('hidden');
+}
+
+function handleResponse(response) {
+    const responseText = document.getElementById('response-text');
+    if (response === 'yes') {
+        responseText.innerText = 'Que ótimo! Vamos celebrar juntos!';
+    } else if (response === 'no') {
+        responseText.innerText = 'Ué, não entendi pq clicou aqui 🙄👋';
+    }
+    document.getElementById('response').classList.remove('hidden');
+    document.getElementById('message').classList.add('hidden');
+}'''
+
+# Write files
+with open(os.path.join(folder_path, 'index.html'), 'w') as f:
+    f.write(html_content)
+
+with open(os.path.join(folder_path, 'style.css'), 'w') as f:
+    f.write(css_content)
+
+with open(os.path.join(folder_path, 'script.js'), 'w') as f:
+    f.write(js_content)
+
+folder_path
