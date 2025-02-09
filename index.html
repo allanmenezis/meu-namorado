@@ -1,21 +1,77 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Meu Amor</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Meu Amor</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .hearts {
+            background-image: url('https://path_to_hearts_background'); /* Altere o link para o fundo desejado */
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+        h1 {
+            font-size: 36px;
+            color: #ff4081;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #ff4081;
+            color: white;
+            font-size: 18px;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e3356c;
+        }
+        .response {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Você realmente não se arrependeu de namorar comigo?</h1>
-        <img src="foto.jpg" alt="Nosso Amor" class="foto">
-        <div class="botoes">
-            <button id="btn-sim" disabled>Sim</button>
-            <button id="btn-nao">Não</button>
-        </div>
-        <div id="coracoes"></div>
+    <div class="container hearts">
+        <h1>Você não se arrependeu de namorar comigo, né?</h1>
+        <p>Me conta, amor. Me desculpe pelos vacilos! 🙈</p>
+        <button id="noButton">Não</button>
+        <p id="response" class="response">Eu sei meu amor, eu sou perfeito😘💅🏾</p>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        document.getElementById('noButton').addEventListener('click', function() {
+            document.getElementById('response').style.display = 'block';
+            this.disabled = true;
+        });
+    </script>
 </body>
 </html>
